@@ -2,11 +2,9 @@
 from socket import *
 import time, telebot
 
-TOKEN = '804290219:AAGmXyBRylifh6RYqkpynnfW8DHW3aV0Muo'
-bot = telebot.TeleBot(token=TOKEN)
-
 class Scan:
-    def __init__(self,message):
+    def __init__(self,message,TOKEN):
+        bot = telebot.TeleBot(token=TOKEN)
         all_port = [
         1, 7, 9, 11, 13, 15, 17, 18, 19, 20, 21, 22, 23, 37, 39, 42, 43, 49, 50, 53, 57, 65, 67, 68, 69, 70, 77, 79, 80, 87, 88,
         95, 98, 101, 102, 104, 105, 106, 107, 109, 111, 113, 115, 117, 123, 129, 135, 137, 138, 139, 161, 162, 163, 164,
