@@ -6,8 +6,7 @@ from Riot import riot
 from SERVICES import help_user,Url
 
 # bot token
-TOKEN = '804290219:AAGmXyBRylifh6RYqkpynnfW8DHW3aV0Muo'
-# TOKEN = '972474793:AAEutw258J_Yvl-pQC-dQYJugiJ_IdEQy0A'
+TOKEN = 'Token'
 bot = telebot.TeleBot(token=TOKEN)
 tb = telebot.AsyncTeleBot(TOKEN)
 admin_bot = [772949762]
