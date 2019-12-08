@@ -1,6 +1,6 @@
 all_users_info = {
-917515055: {'id': 917515055, 'group_id': -342674234, 'is_bot': False, 'first_name': '@No_Name_999', 'last_name': None, 'username': 'llllNoNamellll'},
-772949762: {'id': 772949762, 'group_id': -375887264, 'is_bot': False, 'first_name': 'محمد', 'last_name': None, 'username': 'ThE_GhOsT_404'},
+917515055: {'id': 917515055, 'group_id': 917515055, 'is_bot': False, 'first_name': '@No_Name_999', 'last_name': None, 'username': 'llllNoNamellll'},
+772949762: {'id': 772949762, 'group_id': 772949762, 'is_bot': False, 'first_name': 'محمد', 'last_name': None, 'username': 'ThE_GhOsT_404'},
 870068962: {'id': 870068962, 'is_bot': False, 'first_name': 'OOMD_NOOR', 'last_name': None, 'username': 'OOMD_NOOR3'},
 888072290: {'id': 888072290, 'group_id': -1001401732872, 'is_bot': False, 'first_name': '</ELKABOUS>', 'last_name': None, 'username': 'ELKAB0US'},
 737259612: {'id': 737259612, 'group_id': -1001401732872, 'is_bot': False, 'first_name': "%A_L_I_% \uf894،\uf895'", 'last_name': None, 'username': 'Al0ie'},
@@ -19,7 +19,6 @@ all_users_info = {
 708156523: {'id': 708156523, 'group_id': 708156523, 'is_bot': False, 'first_name': 'تقني|•TIQANE•|', 'last_name': 'تواصل ᵀᴷ', 'username': 'Apk_X2018Admin'},
 780927245: {'id': 780927245, 'group_id': -1001401732872, 'is_bot': False, 'first_name': 'مروان', 'last_name': 'محمد', 'username': None},
 1044917298: {'id': 1044917298, 'group_id': -1001401732872, 'is_bot': False, 'first_name': 'No', 'last_name': 'Body', 'username': 'H3ckerm'},
-798930211: {'id': 798930211, 'group_id': -1001401732872, 'is_bot': False, 'first_name': '↯↯ ۛSꙃеᗦ ↯↯', 'last_name': 'ۨ\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u2$
 927828858: {'id': 927828858, 'group_id': -1001401732872, 'is_bot': False, 'first_name': 'The', 'last_name': 'Amar', 'username': None},
 847093044: {'id': 847093044, 'group_id': -1001401732872, 'is_bot': False, 'first_name': 'Tagged Programming', 'last_name': None, 'username': 'Professionalinformation'},
 739153100: {'id': 739153100, 'group_id': -1001401732872, 'is_bot': False, 'first_name': 'Black_Hunter-', 'last_name': 'X', 'username': 'Bhx73'},
@@ -35,7 +34,6 @@ all_users_info = {
 828321912: {'id': 828321912, 'group_id': -1001401732872, 'is_bot': False, 'first_name': 'نوور الدين', 'last_name': None, 'username': 'Alxyr'},
 914235684: {'id': 914235684, 'group_id': -1001401732872, 'is_bot': False, 'first_name': 'الهكر', 'last_name': 'العكر', 'username': None},
 767422968: {'id': 767422968, 'group_id': -1001401732872, 'is_bot': False, 'first_name': "شرقآٱوي-'م", 'last_name': 'آٱلڤآآچرر-', 'username': None},
-976436518: {'id': 976436518, 'group_id': -1001401732872, 'is_bot': False, 'first_name': '~_*م ـوؤديي کـڪوؤکـڪب رڕأإکـڪبههـم ـ ففء 🙂💜*_~', 'last_name': None, 'username': 'M0
 532344496: {'id': 532344496, 'group_id': -1001401732872, 'is_bot': False, 'first_name': '.', 'last_name': None, 'username': 'ali3lwa1'},
 728739336: {'id': 728739336, 'group_id': -375887264, 'is_bot': False, 'first_name': 'The', 'last_name': 'Jocker1', 'username': 'TheJocker1'},
 796150886: {'id': 796150886, 'group_id': -1001401732872, 'is_bot': False, 'first_name': '๖ۣۜM๖ۣۜR_๖ۣۜH๖ۣۜA๖ۣۜC๖ۣۜK', 'last_name': None, 'username': 'OMAR_SAMY_10'},
@@ -60,14 +58,14 @@ all_users_info = {
 }
 
 all_admin_info = {
-772949762: {'is_creator': True, 'group_id': -1001401732872, 'type': 'supergroup', 'group_name': 'No_404_Name', 'id': 772949762, 'is_bot': False, 'first_name': 'محمد', 'last_name': None, 'username': 'ThE_GhOsT_404'},
+772949762: {'is_creator': True, 'group_id': -1001280477177, 'type': 'supergroup', 'group_name': None, 'id': 772949762, 'is_bot': False, 'first_name': 'محمد', 'last_name': None, 'username': 'ThE_GhOsT_404'},
 917515055: {'is_creator': True, 'group_id': -342674234, 'type': 'group', 'group_name': None, 'id': 917515055, 'is_bot': False, 'first_name': 'ஔ߷Ԫ', 'last_name': None, 'username': 'llllNoNamellll'},
 1023145281: {'is_creator': True, 'group_id': -397267852, 'type': 'group', 'group_name': None, 'id': 1023145281, 'is_bot': False, 'first_name': 'آسـ♥ـطـ♥ـوٌرةّ', 'last_name': 'آلَعـ♥ـرب', 'username': 'I_Kil_you'},
 684636251: {'is_creator': False, 'group_id': -1001401732872, 'type': 'supergroup', 'group_name': 'No_404_Name', 'id': 684636251, 'is_bot': False, 'first_name': 'OOMD_MIDOO', 'last_name': None, 'username': 'OOMD_MIDOO'}
 }
 
 all_private_info = {
-917515055: {'id': 917515055, 'first_name': 'ஔ߷Ԫ', 'last_name': None, 'username': 'llllNoNamellll'},
+917515055: {'id': 917515055, 'first_name': '@No_Name_999', 'last_name': None, 'username': 'llllNoNamellll'},
 772949762: {'id': 772949762, 'first_name': 'محمد', 'last_name': None, 'username': 'ThE_GhOsT_404'},
 552480062: {'id': 552480062, 'first_name': 'osama', 'last_name': 'Net', 'username': 'jojonet_vo'},
 1023145281: {'id': 1023145281, 'first_name': 'آسـ♥ـطـ♥ـوٌرةّ', 'last_name': 'آلَعـ♥ـرب', 'username': 'I_Kil_you'},
@@ -82,10 +80,13 @@ all_private_info = {
 
 all_supergroup_info = {
 -1001379510639: {'chat_id': -1001379510639, 'username': None},
--1001401732872: {'chat_id': -1001401732872, 'username': 'No_404_Name'}
+-1001401732872: {'chat_id': -1001401732872, 'username': 'No_404_Name'},
+-1001280477177: {'chat_id': -1001280477177, 'username': None}
 }
 
 all_group_info = {
 -342674234: {'chat_id': -342674234, 'username': None},
 -397267852: {'chat_id': -397267852, 'username': None}
 }
+
+        

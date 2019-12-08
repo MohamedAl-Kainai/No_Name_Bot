@@ -3,13 +3,11 @@
 import telebot
 from db import DATA
 
-TOKEN = '804290219:AAGmXyBRylifh6RYqkpynnfW8DHW3aV0Muo'
-bot = telebot.TeleBot(token=TOKEN)
-
 class data:
-    def __init__(self,message,type='Save_Data'):
+    def __init__(self,bot,message,type='Save_Data'):
         self.type = type
         self.message = message
+        self.bot = bot
         run = {
         'Save_Data':self.Save_Data,
         'Add_Data':self.Add_Data,
@@ -39,6 +37,7 @@ all_group_info = {}
             db.write(str(Data))
 
     def Add_Data(self):
+        bot = self.bot
         message = self.message
         # all_users
         DATA.all_users_info[message.from_user.id] = {
