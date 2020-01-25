@@ -1,0 +1,64 @@
+{
+  "urls": {
+    "program_courses": {
+      "Python": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIfnM9y0sQRwjVz2-IwvnEJep"
+      ],
+      "Java": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIflkywYEIfRvAU9BaW0rpjy-"
+      ],
+      "C#": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIfkDF2xTIB5kX8gdthmLTufx"
+      ],
+      "Html": [
+        "https://youtu.be/c9559JVpFV4",
+        "https://www.youtube.com/playlist?list=PLT56sSeAKiIvULoKwhMIvizK8XG3PlCjl",
+        "https://youtu.be/WKmT2vFaKXk"
+      ],
+      "CSS": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIflO6xnz4jpmzzSuo5B63aJf"
+      ],
+      "JavaScript": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIfmiYYwt29BG7N9zzsd-jLRQ"
+      ],
+      "Sql": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIfmOaBgzzsY256u9-_8_g39e"
+      ],
+      "php": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIfmPDQahhTDdd1DJ4PwQl3pC",
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIflYXyXHNiG-hyyVaz7-9ujn"
+      ],
+      "C": [
+        "https://www.youtube.com/playlist?list=PLdxj0yX1mI2Jrmw0IbB8xiw4lGmMAGNW",
+        "https://www.youtube.com/playlist?list=PL8_52hiiTDN623BNz4Ysg4r1g8UGNoU-p",
+        "https://www.youtube.com/playlist?list=PLUC-ItjDJlmMxme5ufsRI5pZcPPKmeBgJ"
+      ],
+      "Kotlin": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIfmbpu6cVCxo98u_Yk0Hfxah",
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIfl5UHtM6DRFAVn3PBuJ7NGD"
+      ],
+      "C++": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIflPoGDzHxFW5sDadboQ08Vd"
+      ],
+      "Ruby": [
+        "https://www.youtube.com/playlist?list=PLF8OvnCBlEY0GJVVe1YquY64Ag7NBbPZq",
+        "https://www.youtube.com/playlist?list=PLF8OvnCBlEY0jMKwRR90G3U3uuXWlAlh",
+        "https://www.youtube.com/playlist?list=PLEOFNTP51GtfVzKwthCcqx0_Tgp1TEtc_"
+      ],
+      "Bash": [
+        "https://www.youtube.com/playlist?list=PLhz-PUTwNBovCmClrL_hucO31WCTWxg_k",
+        "https://www.youtube.com/playlist?list=PLzKkkqNKab8IbpYqifsCyUX6vui-JpNuE",
+        "https://www.youtube.com/playlist?list=PLqi7yZF-SFcYzox4VgUSkaksGAAIhya7B"
+      ],
+      "Swift": [
+        "https://www.youtube.com/playlist?list=PLMX-l0-vS8H3eiBcTgTeNjf-FT_ql-w4S",
+        "https://www.youtube.com/playlist?list=PLL3w5r3iZsqogvQgxRT94Uga0r261-qOG",
+        "https://www.youtube.com/playlist?list=PLs97GbUOC82keJxjnslVG-_9A_-EAbyy_",
+        "https://www.youtube.com/playlist?list=PLF8OvnCBlEY1BC20Bl73DuyW3LE5sGCUH"
+      ],
+      "Visual": [
+        "https://www.youtube.com/playlist?list=PLHIfW1KZRIfmLGhFsQ1G5cPv1xokzBsbT"
+      ]
+    }
+  }
+}
