@@ -4,11 +4,14 @@ from telebot import types
 from db import db
 from SERVICES import No_Name
 
-# bot token
+# Input user...
 TOKEN = 'Token..'
+No_Name.NameGroup = 'group name'
+No_Name.UrlGroup = 'group url'
+
+# bot token
 bot = telebot.TeleBot(token=TOKEN)
 tb = telebot.AsyncTeleBot(TOKEN)
-admin_bot = [772949762]
 
 # start_command...---------------------
 @bot.message_handler(commands=['start'])

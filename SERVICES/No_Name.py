@@ -1,7 +1,8 @@
 from telebot import types
 import random
 from db import db
-No_Name_group = 'https://t.me/joinchat/AAAAAFBqSAHafemT3Twrkg'
+UrlGroup = ''
+NameGroup = ''
 class start_command:
     def __init__(self,call,bot):
         self.call = call
@@ -9,14 +10,14 @@ class start_command:
 
     def Intro(self):
         markup = types.InlineKeyboardMarkup()
-        markup.row(types.InlineKeyboardButton('< No_Name >', url=No_Name_group))
+        markup.row(types.InlineKeyboardButton(NameGroup, url=UrlGroup))
         markup.add(types.InlineKeyboardButton(text='•⊱  الخدمات  ⊰•',callback_data='services'))
         markup.row(types.InlineKeyboardButton(text='•⊱   المطور   ⊰•', url='https://t.me/ThE_GhOsT_404'))
         return markup
 
     def services(self):
         markup = types.InlineKeyboardMarkup()
-        markup.row(types.InlineKeyboardButton('< No_Name >', url=No_Name_group))
+        markup.row(types.InlineKeyboardButton(NameGroup, url=UrlGroup))
         markup.add(types.InlineKeyboardButton(text='•⊱  تعلم لغات البرمجة ⊰•',callback_data='programming_courses'))
         markup.add(types.InlineKeyboardButton(text='•⊱  دوراة السكيورتي ⊰•',callback_data='hack_courses'))
         markup.add(types.InlineKeyboardButton(text='•⊱  تقنية & برمجة & سكيورتي ⊰•',callback_data='courses'))
@@ -47,7 +48,7 @@ class start_command:
         y = program_courses
         markup = types.InlineKeyboardMarkup()
         Button = types.InlineKeyboardButton
-        markup.row(Button('< No_Name >', url=No_Name_group))
+        markup.row(Button(NameGroup, url=UrlGroup))
         markup.row(Button(text=x[0], url=y[x[0]]),Button(text=x[1], url=y[x[1]]),Button(text=x[2], url=y[x[2]]))
         markup.row(Button(text=x[3], url=y[x[3]]),Button(text=x[4], url=y[x[4]]),Button(text=x[5], url=y[x[5]]))
         markup.row(Button(text=x[6], url=y[x[6]]),Button(text=x[7], url=y[x[7]]),Button(text=x[8], url=y[x[8]]))
