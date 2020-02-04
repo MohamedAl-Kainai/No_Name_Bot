@@ -1,12 +1,19 @@
 from telebot import types
-import random
+import random, json
 from db import db
+
 UrlGroup = ''
 NameGroup = ''
 class start_command:
-    def __init__(self,call,bot):
+    def __init__(self,call,bot,message):
         self.call = call
         self.bot = bot
+        self.message = message
+
+        if message != None:
+            if self.message.chat.type == 'private':
+                m = 'ماذا يقدمة هذا البوت؟ \n\nالبوت في تطور مستمر ان شاء الله عند الأنتهاء منه سوف يغطي اكبر عدد ممكن من الخدمات من دورات معلومات اجابه عن اسأله وغيرها...'
+                bot.send_message(chat_id=message.chat.id,text=m,reply_markup=self.Intro(),parse_mode='HTML')
 
     def Intro(self):
         markup = types.InlineKeyboardMarkup()
@@ -81,15 +88,38 @@ class start_command:
         if call.data.startswith('update1'):
             bot.edit_message_text(chat_id=call.message.chat.id,text=PC,message_id=call.message.message_id,reply_markup=self.programming_courses(),parse_mode='HTML')
 
-def get_list(message):
-    if '#List' in message.text:
-        text = message.text
-        text = text.replace('#List','')
+class Services:
+    def __init__(self,bot,message):
+        self.get_list(bot,message)
+        self.get_json(bot,message)
+        self.get_info(bot,message)
+
+    def FindTextInChat(self,word,text):
+        text = text.replace(word,'')
         text = text.replace('\n',' ')
-        text = text.split(' ')
-        text = list(set(text))
-        if '' in text:
-            text.remove('')
-        return f'`{text}`'
-    else:
-        return False
+        return text
+
+    def get_list(self,bot,message):
+        if '#List' in message.text:
+            text = self.FindTextInChat('#List',message.text)
+            text = text.split(' ')
+            text = list(set(text))
+            if '' in text:
+                text.remove('')
+            bot.reply_to(message,f'`{text}`',parse_mode='Markdown')
+
+    def get_json(self,bot,message):
+        if '#Json' in message.text:
+            try:
+                JS = eval(self.FindTextInChat('#Json',message.text))
+                JS = json.dumps(JS,indent='  ')
+                print (JS)
+                bot.reply_to(message,f'`{JS}`',parse_mode='Markdown')
+            except :
+                bot.reply_to(message,'SyntaxError: invalid syntax',parse_mode='Markdown')
+
+    def get_info(self,bot,message):
+        if '#ME' in message.text:
+            bot.reply_to(message,
+            f"#Json...\nuser {json.dumps(eval(str(message.from_user)),indent='  ')}\nchat {json.dumps(eval(str(message.chat)),indent='  ')}",
+            parse_mode='Markdown')
