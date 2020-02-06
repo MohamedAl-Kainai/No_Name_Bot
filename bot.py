@@ -6,8 +6,8 @@ from SERVICES import No_Name
 
 # Input user...
 TOKEN = 'Token...'
-No_Name.NameGroup = 'group name...'
-No_Name.UrlGroup = 'group url...'
+No_Name.NameGroup = '< No_Name >'
+No_Name.UrlGroup = 'https://t.me/joinchat/AAAAAFBqSAHafemT3Twrkg'
 #------------------------------
 
 bot = telebot.TeleBot(token=TOKEN)
@@ -24,5 +24,5 @@ def handle_query(call):
 @bot.message_handler(func=lambda m: True)
 def Read_messages(message):
     No_Name.Services(bot,message) # SERVICES class...
-
+    
 bot.polling(none_stop=True)

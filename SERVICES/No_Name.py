@@ -4,6 +4,8 @@ from db import db
 
 UrlGroup = ''
 NameGroup = ''
+IntroMSG = db.GetData('chat',['chat','markup','IntroMSG'])
+
 class start_command:
     def __init__(self,call,bot,message):
         self.call = call
@@ -12,8 +14,7 @@ class start_command:
 
         if message != None:
             if self.message.chat.type == 'private':
-                m = 'ماذا يقدمة هذا البوت؟ \n\nالبوت في تطور مستمر ان شاء الله عند الأنتهاء منه سوف يغطي اكبر عدد ممكن من الخدمات من دورات معلومات اجابه عن اسأله وغيرها...'
-                bot.send_message(chat_id=message.chat.id,text=m,reply_markup=self.Intro(),parse_mode='HTML')
+                bot.send_message(chat_id=message.chat.id,text=IntroMSG,reply_markup=self.Intro(),parse_mode='HTML')
 
     def Intro(self):
         markup = types.InlineKeyboardMarkup()
@@ -26,8 +27,8 @@ class start_command:
         markup = types.InlineKeyboardMarkup()
         markup.row(types.InlineKeyboardButton(NameGroup, url=UrlGroup))
         markup.add(types.InlineKeyboardButton(text='•⊱  تعلم لغات البرمجة ⊰•',callback_data='programming_courses'))
-        markup.add(types.InlineKeyboardButton(text='•⊱  دوراة السكيورتي ⊰•',callback_data='hack_courses'))
-        markup.add(types.InlineKeyboardButton(text='•⊱  تقنية & برمجة & سكيورتي ⊰•',callback_data='courses'))
+        markup.add(types.InlineKeyboardButton(text='•⊱ None ⊰•',callback_data='hack_courses'))
+        markup.add(types.InlineKeyboardButton(text='•⊱ None ⊰•',callback_data='courses'))
         markup.add(types.InlineKeyboardButton(text='رجوع',callback_data='back_intro'))
         return markup
 
@@ -74,7 +75,7 @@ class start_command:
         call = self.call
         bot = self.bot
         PC = db.GetData('chat',searsh=['chat','markup','program_coursesMSG'])
-        m = 'ماذا يقدمة هذا البوت؟ \n\nالبوت في تطور مستمر ان شاء الله عند الأنتهاء منه سوف يغطي اكبر عدد ممكن من الخدمات من دورات معلومات اجابه عن اسأله وغيرها...'
+        m = IntroMSG
         if call.data.startswith('services'):
             bot.edit_message_text(chat_id=call.message.chat.id,text=m,message_id=call.message.message_id,reply_markup=self.services(),parse_mode='HTML')
         if call.data.startswith('back_intro'):
@@ -88,13 +89,34 @@ class start_command:
         if call.data.startswith('update1'):
             bot.edit_message_text(chat_id=call.message.chat.id,text=PC,message_id=call.message.message_id,reply_markup=self.programming_courses(),parse_mode='HTML')
 
+class get_hash:
+    def __init__(self,bot,message):
+        self.get_base64_en(bot,message)
+        self.get_base64_de(bot,message)
+
+    def get_base64_en(self,bot,message):
+        if '#base64 en' in (message.text).lower():
+            text_en = bytes(message.text.replace('#base64 en',''),'utf-8')
+            text_en = base64.b64encode(text_en)
+            text = text_en.decode('utf-8')
+            bot.reply_to(message,f'`{text}`',parse_mode='Markdown')
+
+    def get_base64_de(self,bot,message):
+        if '#base64 de' in (message.text).lower():
+            try:
+                text_de = bytes(message.text.replace('#base64 de',''),'utf-8')
+                text_de = base64.b64decode(text_de)
+                text = text_de.decode('utf-8')
+                bot.reply_to(message,f'`{text}`',parse_mode='Markdown')
+            except:
+                bot.reply_to(message,'This is not a base64 encryption...')
+
 class Services:
     def __init__(self,bot,message):
+        get_hash(bot,message)
         self.get_list(bot,message)
         self.get_json(bot,message)
         self.get_info(bot,message)
-        self.get_base64_en(bot,message)
-        self.get_base64_de(bot,message)
 
     def FindTextInChat(self,word,text):
         text = text.replace(word,'')
@@ -124,17 +146,3 @@ class Services:
             bot.reply_to(message,
             f"#Json...\nuser {json.dumps(eval(str(message.from_user)),indent='  ')}\nchat {json.dumps(eval(str(message.chat)),indent='  ')}",
             parse_mode='Markdown')
-
-    def get_base64_en(self,bot,message):
-        if '#base64 en' in (message.text).lower():
-            text_en = bytes(message.text.replace('#base64 en',''),'utf-8')
-            text_en = base64.b64encode(text_en)
-            text = text_en.decode('utf-8')
-            bot.reply_to(message,f'`{text}`',parse_mode='Markdown')
-
-    def get_base64_de(self,bot,message):
-        if '#base64 de' in (message.text).lower():
-            text_de = bytes(message.text.replace('#base64 de',''),'utf-8')
-            text_de = base64.b64decode(text_de)
-            text = text_de.decode('utf-8')
-            bot.reply_to(message,f'`{text}`',parse_mode='Markdown')
