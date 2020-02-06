@@ -1,5 +1,5 @@
 from telebot import types
-import random, json
+import random, json, base64
 from db import db
 
 UrlGroup = ''
@@ -93,6 +93,8 @@ class Services:
         self.get_list(bot,message)
         self.get_json(bot,message)
         self.get_info(bot,message)
+        self.get_base64_en(bot,message)
+        self.get_base64_de(bot,message)
 
     def FindTextInChat(self,word,text):
         text = text.replace(word,'')
@@ -113,7 +115,6 @@ class Services:
             try:
                 JS = eval(self.FindTextInChat('#Json',message.text))
                 JS = json.dumps(JS,indent='  ')
-                print (JS)
                 bot.reply_to(message,f'`{JS}`',parse_mode='Markdown')
             except :
                 bot.reply_to(message,'SyntaxError: invalid syntax',parse_mode='Markdown')
@@ -123,3 +124,17 @@ class Services:
             bot.reply_to(message,
             f"#Json...\nuser {json.dumps(eval(str(message.from_user)),indent='  ')}\nchat {json.dumps(eval(str(message.chat)),indent='  ')}",
             parse_mode='Markdown')
+
+    def get_base64_en(self,bot,message):
+        if '#base64 en' in (message.text).lower():
+            text_en = bytes(message.text.replace('#base64 en',''),'utf-8')
+            text_en = base64.b64encode(text_en)
+            text = text_en.decode('utf-8')
+            bot.reply_to(message,f'`{text}`',parse_mode='Markdown')
+
+    def get_base64_de(self,bot,message):
+        if '#base64 de' in (message.text).lower():
+            text_de = bytes(message.text.replace('#base64 de',''),'utf-8')
+            text_de = base64.b64decode(text_de)
+            text = text_de.decode('utf-8')
+            bot.reply_to(message,f'`{text}`',parse_mode='Markdown')
