@@ -24,5 +24,5 @@ def handle_query(call):
 @bot.message_handler(func=lambda m: True)
 def Read_messages(message):
     No_Name.Services(bot,message) # SERVICES class...
-    
+
 bot.polling(none_stop=True)

