@@ -1,8 +1,8 @@
 #! /usr/bin/python3
-import telebot ,time ,os ,random
+import telebot
 from telebot import types
 from db import db
-from SERVICES import No_Name
+from SERVICES import No_Name ,BotSystem
 
 # Input user...
 TOKEN = 'Token...'
@@ -10,6 +10,7 @@ No_Name.NameGroup = '< No_Name >'
 No_Name.UrlGroup = 'https://t.me/joinchat/AAAAAFBqSAHafemT3Twrkg'
 #------------------------------
 
+# bot system...
 bot = telebot.TeleBot(token=TOKEN)
 tb = telebot.AsyncTeleBot(TOKEN)
 
@@ -24,5 +25,8 @@ def handle_query(call):
 @bot.message_handler(func=lambda m: True)
 def Read_messages(message):
     No_Name.Services(bot,message) # SERVICES class...
+#------------------------------
 
-bot.polling(none_stop=True)
+# to run...
+BotSystem.start(bot)
+#------------------------------

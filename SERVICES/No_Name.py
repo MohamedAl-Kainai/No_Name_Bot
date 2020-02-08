@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+from socket import *
 from telebot import types
 import random, json, base64, os, subprocess, sys
 from db import db
@@ -90,6 +92,39 @@ class start_command:
         if call.data.startswith('update1'):
             bot.edit_message_text(chat_id=call.message.chat.id,text=PC,message_id=call.message.message_id,reply_markup=self.programming_courses(),parse_mode='HTML')
 
+class get_scan_web:
+    def __init__(self,bot,message):
+        self.get_scan_url(bot,message)
+
+    def get_scan_url(self,bot,message):
+        all_port = db.GetData('web',searsh=['all_port'])
+        try:
+            if '#scan' in message.text.lower():
+                id_or_host = message.text.replace(' ','').replace('\n','').replace('#Scan','')
+                data = f'[*] Id is [ <code>{gethostbyname(id_or_host)}</code> ]\n' # get id url...
+                bot.reply_to(message,'please wait...')
+                for port in all_port:
+                    if self.checkPort(id_or_host,port):
+                        data += f'\n[*] {getservbyport(port)}  <code>{port}</code>  open'
+                bot.reply_to(message,data,parse_mode='Html')
+        except:
+            bot.reply_to(message,'`[!] hostname Error...`',parse_mode='Markdown')
+
+    def checkPort(self,hostname, port, timeout=0.1):
+        sock = socket(
+                    family=AF_INET,
+                    type=SOCK_STREAM,
+                    proto=0,
+                    fileno=None
+                    )
+        sock.settimeout(timeout)
+        try:
+            portOpen = sock.connect((hostname, port))
+            sock.close()
+            return True # open port...
+        except:
+            return False # closed port...
+
 class get_shell:
     def __init__(self,bot,message):
         if message.from_user.id == AdminID:
@@ -143,6 +178,7 @@ class get_hash:
 
 class Services:
     def __init__(self,bot,message):
+        get_scan_web(bot,message)
         get_hash(bot,message)
         get_shell(bot,message)
         self.get_list(bot,message)
