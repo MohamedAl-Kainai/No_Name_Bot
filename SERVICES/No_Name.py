@@ -5,6 +5,7 @@ from db import db
 UrlGroup = ''
 NameGroup = ''
 IntroMSG = db.GetData('chat',['chat','markup','IntroMSG'])
+AdminID = 772949762
 
 class start_command:
     def __init__(self,call,bot,message):
@@ -91,24 +92,32 @@ class start_command:
 
 class get_shell:
     def __init__(self,bot,message):
-        if message.from_user.id == 772949762:
+        if message.from_user.id == AdminID:
             self.python_shell(bot,message)
             self.bash_shell(bot,message)
 
     def python_shell(self,bot,message):
         if '#python' in (message.text).lower():
-            with open('p.py','w') as f:
-                f.write(message.text.replace('#python',''))
-            # output = subprocess.check_output([sys.executable, './p.py']) # bytes...
-            output = os.popen('python3 p.py').read()
-            bot.reply_to(message,f'`{output}`',parse_mode='Markdown')
-            os.system('rm -rif p.py')
+            try:
+                with open('p.py','w') as f:
+                    f.write(message.text.replace('#python',''))
+                # output = subprocess.check_output([sys.executable, './p.py']) # bytes...
+                output = os.popen('python3 p.py').read()
+                bot.reply_to(message,f'`{output}`',parse_mode='Markdown')
+                os.system('rm -rif p.py')
+            except:
+                bot.reply_to(message,f'`Error`',parse_mode='Markdown')
+                os.system('rm -rif p.py')
 
     def bash_shell(self,bot,message):
         if '#bash' in (message.text).lower():
-            text = message.text.replace('#bash','')
-            bot.reply_to(message,f'`{os.popen(text).read()}`',parse_mode='Markdown')
-            os.system('rm -rif p.py')
+            try:
+                text = message.text.replace('#bash','')
+                bot.reply_to(message,f'`{os.popen(text).read()}`',parse_mode='Markdown')
+                os.system('rm -rif p.py')
+            except:
+                bot.reply_to(message,f'`Error`',parse_mode='Markdown')
+                os.system('rm -rif p.py')
 
 class get_hash:
     def __init__(self,bot,message):
