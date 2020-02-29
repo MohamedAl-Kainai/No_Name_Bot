@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 from socket import *
 from telebot import types
-import random, json, base64, os, subprocess, sys
+import random, json, base64, os, subprocess, sys, gtts
 from db import db
 
 UrlGroup = ''
@@ -184,6 +184,7 @@ class Services:
         self.get_list(bot,message)
         self.get_json(bot,message)
         self.get_info(bot,message)
+        self.get_mp3(bot,message)
 
     def FindTextInChat(self,word,text):
         text = text.replace(word,'')
@@ -213,3 +214,21 @@ class Services:
             bot.reply_to(message,
             f"#Json...\nuser {json.dumps(eval(str(message.from_user)),indent='  ')}\nchat {json.dumps(eval(str(message.chat)),indent='  ')}",
             parse_mode='Markdown')
+
+    def get_mp3(self,bot,message):
+        gT = gtts.gTTS
+        try:
+            if '#mp3 ar' in message.text:
+                mp3 = gT(message.text.replace('#mp3 ar',''), lang='ar')
+                mp3.save('gTTG.mp3')
+                file_data = open('gTTG.mp3', 'rb')
+                bot.send_voice(message.chat.id, file_data, caption='<b>mp3</b>', parse_mode='HTML')
+                os.system('rm -rif gTTG.mp3')
+            elif '#mp3 en' in message.text:
+                mp3 = gT(message.text.replace('#mp3 en',''), lang='en')
+                mp3.save('gTTG.mp3')
+                file_data = open('gTTG.mp3', 'rb')
+                bot.send_voice(message.chat.id, file_data, caption='<b>mp3</b>', parse_mode='HTML')
+                os.system('rm -rif gTTG.mp3')
+        except:
+            bot.reply_to(message,f'`Error`',parse_mode='Markdown')

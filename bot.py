@@ -5,7 +5,7 @@ from db import db
 from SERVICES import No_Name ,BotSystem
 
 # Input user...
-TOKEN = 'Token...'
+TOKEN = 'TOKEN...'
 No_Name.NameGroup = '< No_Name >'
 No_Name.UrlGroup = 'https://t.me/joinchat/AAAAAFBqSAHafemT3Twrkg'
 #------------------------------

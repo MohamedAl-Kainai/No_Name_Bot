@@ -10,3 +10,7 @@ To run...
 ```bash
 python3 bot.py
 ```
+To run on background...
+```bash
+python3 bot.py --background
+```
