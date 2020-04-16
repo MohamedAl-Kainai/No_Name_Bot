@@ -5,3 +5,5 @@ pyTelegramBotAPI
 requests
 six
 urllib3
+gtts
+ast

@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 from socket import *
 from telebot import types
-import random, json, base64, os, subprocess, sys, gtts
+import random, json, base64, os, subprocess, sys, gtts, ast
 from db import db
 
 UrlGroup = ''
@@ -188,7 +188,8 @@ class Services:
 
     def FindTextInChat(self,word,text):
         text = text.replace(word,'')
-        text = text.replace('\n',' ')
+        text = text.replace(word+' ','')
+        text = text.replace('\n','')
         return text
 
     def get_list(self,bot,message):
@@ -203,11 +204,11 @@ class Services:
     def get_json(self,bot,message):
         if '#Json' in message.text:
             try:
-                JS = eval(self.FindTextInChat('#Json',message.text))
+                JS = ast.literal_eval(self.FindTextInChat('#Json',message.text))
                 JS = json.dumps(JS,indent='  ')
                 bot.reply_to(message,f'`{JS}`',parse_mode='Markdown')
             except :
-                bot.reply_to(message,'SyntaxError: invalid syntax',parse_mode='Markdown')
+                bot.reply_to(message,'`SyntaxError`',parse_mode='Markdown')
 
     def get_info(self,bot,message):
         if '#ME' in message.text:
